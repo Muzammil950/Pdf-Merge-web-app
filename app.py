@@ -1,29 +1,65 @@
-from flask import Flask, render_template, request, send_file
+from flask import Flask, render_template, request, send_file, flash, redirect
 from PyPDF2 import PdfMerger
+from werkzeug.utils import secure_filename
 import os
+import uuid
 
 app = Flask(__name__)
+app.secret_key = "supersecretkey"
+
 UPLOAD_FOLDER = "uploads"
+ALLOWED_EXTENSIONS = {"pdf"}
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
+app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
+
+
+def allowed_file(filename):
+    return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
+
 
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-        merger = PdfMerger()
+
         files = request.files.getlist("pdfs")
 
-        for file in files:
-            path = os.path.join(UPLOAD_FOLDER, file.filename)
-            file.save(path)
-            merger.append(path)
+        if not files or files[0].filename == "":
+            flash("Please upload at least one PDF file.")
+            return redirect(request.url)
 
-        output = os.path.join(UPLOAD_FOLDER, "merged.pdf")
-        merger.write(output)
+        merger = PdfMerger()
+        saved_files = []
+
+        for file in files:
+            if file and allowed_file(file.filename):
+
+                filename = secure_filename(file.filename)
+                unique_name = str(uuid.uuid4()) + "_" + filename
+                path = os.path.join(app.config["UPLOAD_FOLDER"], unique_name)
+
+                file.save(path)
+                saved_files.append(path)
+                merger.append(path)
+
+            else:
+                flash("Only PDF files are allowed.")
+                return redirect(request.url)
+
+        output_filename = str(uuid.uuid4()) + "_merged.pdf"
+        output_path = os.path.join(app.config["UPLOAD_FOLDER"], output_filename)
+
+        merger.write(output_path)
         merger.close()
 
-        return send_file(output, as_attachment=True)
+        # Delete original files
+        for file_path in saved_files:
+            os.remove(file_path)
+
+        return send_file(output_path, as_attachment=True)
 
     return render_template("index.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)

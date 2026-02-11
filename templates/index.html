@@ -1,16 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>PDF Merger</title>
+    <title>PDF Merger App</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f9;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 400px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        input {
+            margin: 15px 0;
+        }
+
+        .flash {
+            color: red;
+        }
+    </style>
 </head>
 <body>
-    <h2>Merge Multiple PDFs into One</h2>
+
+<div class="container">
+    <h2>Merge Multiple PDFs</h2>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <p class="flash">{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
 
     <form method="post" enctype="multipart/form-data">
         <input type="file" name="pdfs" multiple required>
-        <br><br>
+        <br>
         <button type="submit">Merge PDFs</button>
     </form>
+</div>
 
 </body>
 </html>
