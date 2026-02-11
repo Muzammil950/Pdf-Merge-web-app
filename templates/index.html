@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>PDF Merger App</title>
+    <title>PDF & Image Merger</title>
     <style>
         body {
             font-family: Arial;
@@ -14,9 +14,9 @@
             background: white;
             padding: 30px;
             border-radius: 10px;
-            width: 400px;
+            width: 420px;
             margin: auto;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
         }
 
         button {
@@ -44,7 +44,8 @@
 <body>
 
 <div class="container">
-    <h2>Merge Multiple PDFs</h2>
+    <h2>Merge PDF & Images</h2>
+    <p>Upload PDF, JPG, PNG files</p>
 
     {% with messages = get_flashed_messages() %}
       {% if messages %}
@@ -55,9 +56,10 @@
     {% endwith %}
 
     <form method="post" enctype="multipart/form-data">
-        <input type="file" name="pdfs" multiple required>
+        <input type="file" name="files" multiple required 
+        accept=".pdf,.jpg,.jpeg,.png">
         <br>
-        <button type="submit">Merge PDFs</button>
+        <button type="submit">Merge Files</button>
     </form>
 </div>
 
