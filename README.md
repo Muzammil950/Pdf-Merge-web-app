@@ -15,8 +15,6 @@ A simple, fast, and beginner-friendly **web application** that allows users to u
 Watch the complete project demonstration below:
 
 
-
-
 Built using **Python**, **Flask**, and **PyPDF2**.
 
 ---
