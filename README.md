@@ -32,7 +32,7 @@ Built using **Python**, **Flask**, and **PyPDF2**.
 
 ## 🛠️ Tech Stack 
 
-- **Python**
+- **Python**  
 - **Flask** (Backend)
 - **PyPDF2** (PDF processing)
 - **HTML** (Frontend)
