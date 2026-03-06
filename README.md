@@ -30,7 +30,7 @@ Built using **Python**, **Flask**, and **PyPDF2**.
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Tech Stack 
 
 - **Python**
 - **Flask** (Backend)
