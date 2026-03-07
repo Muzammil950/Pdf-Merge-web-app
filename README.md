@@ -28,7 +28,7 @@ Built using **Python**, **Flask**, and **PyPDF2**.
 - 🧑‍🎓 Perfect for students & beginners  
 - 💻 Clean and simple user interface  
 
----
+--- 
 
 ## 🛠️ Tech Stack     
 
