@@ -3,7 +3,7 @@
 
 A simple, fast, and beginner-friendly **web application** that allows users to upload multiple PDF files and merge them into a single PDF — all in one click.
 
-
+ 
 <h1 align="center">PDF Merge Web App</h1>
  
 <p align="center">
