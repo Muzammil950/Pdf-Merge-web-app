@@ -25,7 +25,7 @@ Built using **Python**, **Flask**, and **PyPDF2**.
 - 🔗 Merge all PDFs into a single file  
 - ⚡ Fast and lightweight  
 - 🌐 Works on laptop and mobile browser  
-- 🧑‍🎓 Perfect for students & beginners  
+- 🧑‍🎓 Perfect for students & beginners   
 - 💻 Clean and simple user interface    
 
 --- 
