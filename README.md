@@ -39,5 +39,5 @@ Built using **Python**, **Flask**, and **PyPDF2**.
 
 ---
 
-## 📁 Project Structure  
+## 📁 Project Structure
 
