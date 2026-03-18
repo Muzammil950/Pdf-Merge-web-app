@@ -26,7 +26,7 @@ Built using **Python**, **Flask**, and **PyPDF2**.
 - ⚡ Fast and lightweight  
 - 🌐 Works on laptop and mobile browser  
 - 🧑‍🎓 Perfect for students & beginners   
-- 💻 Clean and simple user interface    
+- 💻 Clean and simple user interface  
 
 --- 
 
