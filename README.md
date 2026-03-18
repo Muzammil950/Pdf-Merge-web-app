@@ -37,7 +37,8 @@ Built using **Python**, **Flask**, and **PyPDF2**.
 - **PyPDF2** (PDF processing)
 - **HTML** (Frontend)
 
+
 ---
 
-## 📁 Project Structure
+## 📁 Project Structure/
 
